@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="static\css\styles.css">
+    <title>AROGYA</title>
+</head>
+<body>
+ <div class="wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>Arogya</p>
+        </div>
+
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="image-container">
+          <img src="static\assets\img-2.png" alt="Image">
+        </div>
+        <div class="text-container">
+          <h4>Heart attacks can happen suddenly without a person knowing it, and almost 25% of all heart attacks go unrecognized, with women having different symptoms than men</h4>
+        </div>
+    </div>
+
+
+
+
+        <div class="sugar-container" id="login">
+            <div class="top">
+                <header>Enter your details here</header>
+            </div>
+            <form action="{{url_for('oth')}}" method="post" class="other">
+                <div class="input-box">
+                    <input type="text" name="rate" class="input-field" placeholder="Enter your heart rate ">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <div class="select-container">
+                        <div class="select-box">
+                            <select name="smoke" id="smoke" class="options">
+                                <option value="">Do You Smoke</option>
+                                <option value="yes ">Yes</option>
+                                <option value="no">NO</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="select-container">
+                        <div class="select-box">
+                            <select name="ecg" id="ecg" class="options">
+                                <option value="">Rest Ecg</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="select-menu" >
+                    <div class="select-btn">
+                        <span id="smoke" class="sBtn-text" >Are you a Smoker</span>
+                        <i class="bx bx-chevron-down"></i>
+                    </div>
+            
+                    <ul class="options">
+                        <li class="option">
+                            <i class='bx bx-check-shield' ></i> 
+                            <span class="option-text">Yes</span>
+                        </li>
+                        <li class="option">
+                            <i class='bx bxs-hand-right'></i>
+                            <span class="option-text">No</span>
+                        </li>
+                    </ul>
+                </div> -->
+
+
+            
+                <!-- <div class="select-menu1">
+                    <div class="select-btn1">
+                        <span id="ecg" class="sBtn-text1">Rest ECG level</span>
+                        <i class="bx bx-chevron-down"></i>
+                    </div>
+            
+                    <ul class="options1">
+                        <li class="option1">
+                            <i class='bx bx-check-shield' ></i> 
+                            <span class="option-text1" >Zero</span>
+                        </li>
+                        <li class="option1">
+                            <i class='bx bx-check-shield' ></i> 
+                            <span class="option-text1">One</span>
+                        </li>
+                        <li class="option1">
+                            <i class='bx bx-check-shield' ></i> 
+                            <span class="option-text1">two</span>
+                        </li>
+                        <li class="option1">
+                            <i class='bx bxs-hand-right'></i>
+                            <span class="option-text1">Dont' Know</span>
+                        </li>
+                    </ul>
+                </div> -->
+                    <div class="input-box">
+                        <input type="submit" name="submit-btn" class="submit" value="Press here to calculate">
+                    </div>
+            </form>
+            
+        </div>
+
+
+
+        
+
+</div>   
+
+
+<script>
+   
+   const optionMenu = document.querySelector(".select-menu"),
+       selectBtn = optionMenu.querySelector(".select-btn"),
+       options = optionMenu.querySelectorAll(".option"),
+       sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));       
+
+options.forEach(option =>{
+    option.addEventListener("click", ()=>{
+        let selectedOption = option.querySelector(".option-text").innerText;
+        sBtn_text.innerText = selectedOption;
+
+        optionMenu.classList.remove("active");
+    })
+})
+
+const optionMenu1 = document.querySelector(".select-menu1"),
+       selectBtn1 = optionMenu1.querySelector(".select-btn1"),
+       options1 = optionMenu1.querySelectorAll(".option1"),
+       sBtn_text1 = optionMenu1.querySelector(".sBtn-text1");
+
+selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));       
+
+options1.forEach(option =>{
+    option.addEventListener("click", ()=>{
+        let selectedOption = option.querySelector(".option-text1").innerText;
+        sBtn_text1.innerText = selectedOption;
+
+        optionMenu1.classList.remove("active");
+    })
+})
+
+
+</script>
+
+
+</body>
+</html>

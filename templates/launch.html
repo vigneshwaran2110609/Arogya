@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static\css\style1.css">
+
+</head>
+<body>
+    
+<div class="container">
+
+    <h1 class="heading">AROGYA</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="static\assets\img-2.png" alt="">
+            <h3>CHOLESTEROL</h3>
+            <p>click here to enter your cholesterol level</p>
+            <a href="{{url_for ('cholesterol') }}" class="btn">click here</a>
+        </div>
+
+        <div class="box">
+            <img src="static\assets\img-1.png" alt="">
+            <h3>SUGAR LEVEL</h3>
+            <p>click here to enter your sugar level</p>
+            <a href="{{url_for('sug')}}" class="btn">click here</a>
+            
+        </div>
+
+        <div class="box">
+            <img src="static\assets\img-3.png" alt="">
+            <h3>BLOOD PRESSURE</h3>
+            <p>click here to enter your blood pressure level</p>
+            <a href="{{url_for('bloodp')}}" class="btn">click here</a>
+        </div>
+
+        <div class="box">
+            <img src="static\assets\img-4.png" alt="">
+            <h3>OTHER INPUTS</h3>
+            <p>click here to enter dynamic inputs</p>
+            <a href="{{url_for('other')}}" class="btn">click here</a>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

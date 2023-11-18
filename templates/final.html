@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya</title>
+    <link rel="stylesheet" href="static\css\styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Arogya</p>
+            </div>
+    
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+        <div class="container1">
+            <div class="image-container1">
+                <img src="static\assets\img-5.svg" alt="Image">
+            </div>
+            <div class="text-container1">
+                <h4>Heart attacks can happen suddenly without a person knowing it, and almost 25% of all heart attacks go unrecognized, with women having different symptoms than men</h4>
+            </div>
+        </div>
+
+        <div class="con1">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+    
+            <span class="text">Attack Percentage</span>
+        </div>
+
+
+
+
+
+    </div>
+
+    <script>
+        var valuefrompython="{{value_from_python}}";
+        console.log(valuefrompython)
+        let circularProgress = document.querySelector(".circular-progress"),
+    progressValue = document.querySelector(".progress-value");
+
+    let progressStartValue = 0,    
+    progressEndValue = valuefrompython,    
+    speed = 200;
+    
+    let progress = setInterval(() => {
+    progressStartValue++;
+
+    progressValue.textContent = `${progressStartValue}%`
+    circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
+
+    if(progressStartValue == progressEndValue){
+        clearInterval(progress);
+    }    
+    }, speed);
+    </script>
+</body>
+</html>
