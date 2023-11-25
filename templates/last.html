@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/style1.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Arogya</p>
+            </div>
+    
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>  
+        <div class="container">
+
+
+
+            <div class="box-container">
+
+                <div class="box">
+                    <img src="static/assets/ima-2.png" alt="">
+                    <!-- <h3>CHOLESTEROL</h3>
+                    <p>click here to enter your cholesterol level</p>
+                    <a href="{{url_for ('cholesterol') }}" class="btn">click here</a> -->
+                </div>
+
+                <div class="box">
+                    <img src="static/assets/ima-1.png" alt="">
+                    <!-- <h3>SUGAR LEVEL</h3>
+                    <p>click here to enter your sugar level</p>
+                    <a href="{{url_for('sug')}}" class="btn">click here</a> -->
+                    
+                </div>
+
+                <div class="box">
+                    <img src="static/assets/ima-3.png" alt="">
+                    <!-- <h3>BLOOD PRESSURE</h3>
+                    <p>click here to enter your blood pressure level</p>
+                    <a href="{{url_for('bloodp')}}" class="btn">click here</a> -->
+                </div>
+
+                <div class="box">
+                    <img src="static/assets/ima-4.png" alt="">
+                    <!-- <h3>OTHER INPUTS</h3>
+                    <p>click here to enter dynamic inputs</p>
+                    <a href="{{url_for('other')}}" class="btn">click here</a> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+<script>// Add a scroll event listener to the window
+    window.addEventListener('scroll', function() {
+        // Get the current scroll position
+        var scrollPosition = window.scrollY;
+    
+        // Get the .nav element
+        var nav = document.querySelector('.nav');
+    
+        // Add or remove the 'scrolled' class based on the scroll position
+        if (scrollPosition > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+    </script>
+</body>
+</html>

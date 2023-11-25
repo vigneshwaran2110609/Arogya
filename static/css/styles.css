@@ -78,7 +78,7 @@
     align-items: center;
     justify-content: center;
     width: 512px;
-    height: 420px;
+    height: 720px;
     overflow: hidden;
     z-index: 2;
 }
@@ -172,7 +172,44 @@
     justify-content: center; /* Center the text horizontally */
     text-align: center; /* Center the text within the container */
 }
-  
+.container2 {
+    text-align: center;
+    padding: 20px;
+}
+
+.heading2 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.box-container2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box2 {
+    width: calc(50% - 20px);
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.box2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .box2 {
+        width: calc(50% - 20px);
+    }
+}
 
 
 
@@ -262,7 +299,7 @@ header{
 }
 .two-forms{
     display: flex;
-    gap: 10px;
+    gap: 65px;
 }
 .input-field{
     font-size: 15px;
@@ -300,6 +337,23 @@ header{
     background: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     transition: .3s ease-in-out;
+}
+.submit1{
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    height: 45px;
+    width: 200px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(152, 150, 150, 0.7);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.submit1:hover{
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }
 .submit:hover{
     background: rgba(255, 255, 255, 0.5);
@@ -428,6 +482,8 @@ header{
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
     display: none;
 }
+
+
 .select-menu1.active .options1{
     display: block;
 }
@@ -498,7 +554,7 @@ header{
     margin-bottom: 20px;
 }
 .select-box{
-    width: 300px;
+    width: 150px;
     position: relative;
 }
 
@@ -507,7 +563,7 @@ header{
     padding: 10px 15px;
     line-height: 22px;
     font-size: 16px;
-    width: 325px;
+    width: 200px;
     border: 1px solid #ccc;
     border-radius: 50px;
     -webkit-appearance: none;
@@ -564,9 +620,6 @@ header{
         background: rgba(255, 255, 255, 0.15);
     }
 }
-
-
-
 
 @media only screen and (max-width: 540px) {
     .wrapper{

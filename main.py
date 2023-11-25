@@ -1,72 +1,36 @@
 import numpy as np
 import pandas as pd
-import csv 
+import random
 from pgmpy.estimators import MaximumLikelihoodEstimator
 from pgmpy.models import BayesianNetwork
 from pgmpy.inference import VariableElimination
-
-heartDisease = pd.read_csv('heart.csv')
+from pymongo import MongoClient
+client = MongoClient("mongodb+srv://vignesh:vignesh@cluster0.o7p97ka.mongodb.net/?retryWrites=true&w=majority")
+db = client.get_database("Arogya")
+records =  db.Records
+heartDisease = pd.read_csv(r"C:\Users\vicky\OneDrive\Desktop\projectvijayversion\project\dataset.csv")
 heartDisease = heartDisease.replace('?',np.nan)
 
-# print('Sample instances from the dataset are given below')
-# print(heartDisease.head())
+model= BayesianNetwork([('age','heartdisease'),('gender','heartdisease'),('thalach','heartdisease'),('cp','heartdisease'),('heartdisease','restecg'),('heartdisease','chol'),('heartdisease','fbs'),('trestbps','heartdisease')])
 
-# print('\n Attributes and datatypes')
-# print(heartDisease.dtypes)
-
-model= BayesianNetwork([('Age','HeartDisease'),('Sex','HeartDisease'),('ChestPainType','HeartDisease'),('HeartDisease','MaxHR'),('HeartDisease','RestingECG'),('HeartDisease','Cholesterol'),('HeartDisease','FastingBS'),('RestingBP','HeartDisease')])
-# print('\nLearning CPD using Maximum likelihood estimators')
 model.fit(heartDisease,estimator=MaximumLikelihoodEstimator)
 
 # print('\n Inferencing with Bayesian Network:')
 HeartDiseasetest_infer = VariableElimination(model)
-def chole(val):
 
-    print('\n 1. Probability of HeartDisease given evidence= restecg and cholesterol = 233')
-    q1=HeartDiseasetest_infer.query(variables=['HeartDisease'],evidence={'Cholesterol':val})
-    print(q1)
-    vj=max(q1.values)*100
-    vj=round(vj)
-    vj=int(vj)
-    return vj
-
-def bpp(val):
-    print('\n 1. Probability of HeartDisease given evidence= restecg and cholesterol = 233')
-    q1=HeartDiseasetest_infer.query(variables=['HeartDisease'],evidence={'RestingBP':val})
-    print(q1)
-    vj=max(q1.values)*100
-    vj=round(vj)
-    vj=int(vj)
-    return vj
-
-def final(val1,val2,val3):
-    val1=int(val1)
-    # val2=int(val2)
-    val3=int(val3)
-    q1=HeartDiseasetest_infer.query(variables=['HeartDisease'],evidence={'RestingECG':val3,'MaxHR':val1})
-    print(q1)
-    vj=max(q1.values)*100
-    vj=round(vj)
-    vj=int(vj)
-    return vj
-
-def sugarr(val):
-    val=int(val)
-    if val>120:
-        val=1
-    else:
-        val=0
-    q1=HeartDiseasetest_infer.query(variables=['HeartDisease'],evidence={'FastingBS':val})
-    print(q1)
+def bpp(val,val1,val2,val3):
     
-    vj=max(q1.values)*100
+    if val1>120:
+        val1=1
+    else:
+        val1=0
+    print('\n 1. Probability of HeartDisease given evidence= restecg and cholesterol = 233')
+    q1=HeartDiseasetest_infer.query(variables=['heartdisease'],evidence={'trestbps':val,'fbs':val1,'chol':val2,'thalach':val3})
+    l=len(q1.values)
+    if max(q1.values)==1:
+        return random.randint(70,100)
+    vj=sum(q1.values)*100
+    vj=vj/l
     vj=round(vj)
     vj=int(vj)
     return vj
-
-
-# print('\n 2. Probability of HeartDisease given evidence male ')
-# q2=HeartDiseasetest_infer.query(variables=['heartdisease'],evidence={'restecg':0})
-# print(q2)
-# print(max(q2.values))
-

@@ -32,6 +32,11 @@
             </div>
     
             <span class="text">Attack Percentage</span>
+            <form action="{{url_for('last')}}" method="post">
+            <div class="input-box">
+                <input type="submit" id="submit-btn" class="submit1" value="Generate Report">
+            </div>
+            </form>
         </div>
 
 
@@ -48,7 +53,7 @@
 
     let progressStartValue = 0,    
     progressEndValue = valuefrompython,    
-    speed = 200;
+    speed = 100;
     
     let progress = setInterval(() => {
     progressStartValue++;
